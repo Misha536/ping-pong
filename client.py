@@ -2,6 +2,9 @@ from pygame import *
 import socket
 import json
 from threading import Thread
+from menu import get_conection
+
+SERVER_HOST, SERVER_PORT = get_conection
 
 # ---ПУГАМЕ НАЛАШТУВАННЯ ---
 WIDTH, HEIGHT = 800, 600
@@ -42,6 +45,7 @@ font_win = font.Font(None, 72)
 font_main = font.Font(None, 36)
 # --- ЗОБРАЖЕННЯ ----
 ball = image.load("Без названия.webp")
+ball = transform.scale(ball,(20,20))
 # --- ЗВУКИ ---
 
 # --- ГРА ---
@@ -115,3 +119,4 @@ while True:
         client.send(b"UP")
     elif keys[K_s]:
         client.send(b"DOWN")
+        
